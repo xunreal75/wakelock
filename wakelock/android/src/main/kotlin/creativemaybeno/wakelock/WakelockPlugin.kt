@@ -12,12 +12,12 @@ import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
 class WakelockPlugin : FlutterPlugin, WakelockApi, ActivityAware {
   private var wakelock: Wakelock? = null
 
-  override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
+  override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
     WakelockApi.setup(flutterPluginBinding.binaryMessenger, this)
     wakelock = Wakelock()
   }
 
-  override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
+  override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
     WakelockApi.setup(binding.binaryMessenger, null)
     wakelock = null
   }
